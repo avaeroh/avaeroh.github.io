@@ -38,6 +38,10 @@ ul.posts {
     font-size: 1.5em;
 }
 
+iframe {
+    style="border-style: none;width: 100%; height: 120px;"
+}
+
 ul.posts li {
     list-style: none;
 }
