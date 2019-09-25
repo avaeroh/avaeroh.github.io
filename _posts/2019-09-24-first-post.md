@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jonathan's Compodium brought to life"
+title: "Jonathan's Compendium brought to life"
 date: 2019-09-24
 ---
 
