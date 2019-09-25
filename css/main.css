@@ -2,6 +2,13 @@ body {
     margin: 60px auto;
     width: 70%;
 }
+
+body iframe {
+    border-style: none;
+    width: 100%; 
+    height: 100% !important;
+}
+
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -36,12 +43,6 @@ footer {
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
-}
-
-iframe {
-    border-style: none;
-    width: 100%; 
-    height: 100% !important;
 }
 
 ul.posts li {
