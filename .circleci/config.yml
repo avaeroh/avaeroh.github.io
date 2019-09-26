@@ -20,8 +20,8 @@ jobs:
       - checkout
       - run: pwd
       - run: ls tests
-      - run: ls tests/ui
+      - run: ls tests/UI
       - run: sudo npm install -g testcafe
 
       # run tests!
-      - run: testcafe chrome tests/ui/tests.js
+      - run: testcafe chrome tests/UI/tests.js
