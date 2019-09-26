@@ -19,9 +19,7 @@ jobs:
     steps:
       - checkout
       - run: pwd
-      - run: ls
-      - run: cd tests/ui/
       - run: sudo npm install -g testcafe
 
       # run tests!
-      - run: testcafe chrome tests.js
+      - run: testcafe chrome tests/ui/tests.js
