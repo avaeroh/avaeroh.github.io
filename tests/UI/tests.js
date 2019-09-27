@@ -21,7 +21,7 @@ fixture `Tests!`
 
     test('homepage title displayed correctly', async t => {
         await t
-            .expect(homePage.homePageTitle)
+            .expect((homePage.homePageTitle).innerText)
                 .contains(homePage.homePageTitleText);
     })
 
