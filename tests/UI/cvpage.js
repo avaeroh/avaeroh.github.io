@@ -4,7 +4,7 @@ export default class CVPage {
     constructor(){
        this.title = Selector("title");
        this.cvPageTitle = "Jonathan's CV.";
-       this.cv = "";
+       this.cv = Selector(".cv");
     }
     
 }
