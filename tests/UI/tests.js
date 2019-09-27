@@ -11,14 +11,6 @@ fixture `Tests!`
         await t.maximizeWindow();
     })
 
-    // test('Search for train time, check search page title', async t => {
-    //     await homePage.enterBothLocations(homePage.fromText, homePage.toText);
-    //     await t
-    //         .click(homePage.submitButton)
-    //         .expect(resultsPage.title.innerText)
-    //             .contains(resultsPage.trainLineTitle);
-    // })
-
     test('homepage title displayed correctly', async t => {
         await t
             .expect((homePage.homePageTitle).innerText)
