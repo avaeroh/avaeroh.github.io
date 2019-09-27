@@ -4,7 +4,7 @@ export default class HomePage {
     constructor(){
         this.baseUrl = "https://avaeroh.github.io/";
         this.homePageTitle = Selector("div.blurb h1");
-        this.homePageTitleText = "Avaeroh's hub";
+        this.homePageTitleText = String("Avaeroh's hub");
         this.cvPageLink = Selector("[href='/cv']");
 
         // this.toLocation = Selector("[id='to.text']");
