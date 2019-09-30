@@ -21,4 +21,5 @@ fixture `Tests!`
         await t
             .click(homePage.cvPageLink)
             .expect((cVPage.cv).exists).ok();
+            
     })
