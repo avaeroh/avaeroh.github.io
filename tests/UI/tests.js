@@ -18,8 +18,7 @@ fixture `Tests!`
     })
 
     test('CV is present on the cv page', async t => {
-        await t
+        await tdsadsadsad
             .click(homePage.cvPageLink)
-            .expect((cVPage.cv).exists).ok();
-            
+            .expect((cVPage.cv).exists).notOk();
     })
