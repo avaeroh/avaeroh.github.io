@@ -6,5 +6,6 @@ jobs:
 
     steps:
       - checkout
+      - run: mvn -f .tests/API clean verify
       - run: sudo npm install -g testcafe
       - run: testcafe chrome tests/UI/tests.js
