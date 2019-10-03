@@ -2,19 +2,18 @@
 # https://circleci.com/docs/2.0/language-java-maven/
 version:                 2.1
 jobs:
-  api_test:
+  build:
      working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
-     - run:              ls -la
 
      docker:
-       # mvn
        - image:          circleci/openjdk:8-jdk-stretch
+
      steps:
        - checkout
 
        - restore_cache:  # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-            key:         avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
+          key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
 
        - run:            mvn dependency:go-offline # gets the project dependencies
 
@@ -25,13 +24,13 @@ jobs:
 
        - run:            mvn clean verify
 
- testcafe:
-    docker:
-      # testcafe
-      - image:           testcafe/testcafe
-    steps:
-      - checkout
-      - run:             testcafe chrome tests/UI/tests.js
+ # testcafe:
+ #    docker:
+ #      # testcafe
+ #      - image:         testcafe/testcafe
+ #    steps:
+ #      - checkout
+ #      - run:           testcafe chrome tests/UI/tests.js
 
 # workflows:
 #   version:             2.1
