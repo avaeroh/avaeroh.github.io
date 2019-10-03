@@ -3,7 +3,7 @@
 version:                 2.1
 jobs:
   build:
-     working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
+     working_directory:  ~/avaeroh.github.io/tests/API/tests # directory where steps will run
 
      docker:
        - image:          circleci/openjdk:8-jdk-stretch
@@ -11,6 +11,8 @@ jobs:
      steps:
        - checkout
        - run:            ls -la
+       - run:            pwd
+       - run:            cd ~/avaeroh.github.io/tests/API/tests
        - restore_cache:  # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
