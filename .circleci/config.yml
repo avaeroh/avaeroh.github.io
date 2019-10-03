@@ -4,7 +4,7 @@ version:                 2.1
 jobs:
    build:
      working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
-     - run: ls -la
+     - run:              ls -la
 
      docker:
        # mvn
@@ -29,13 +29,13 @@ jobs:
   testcafe:
     docker:
       # testcafe
-      - image: testcafe/testcafe
+      - image:           testcafe/testcafe
     steps:
       - checkout
-      - run:  testcafe chrome tests/UI/tests.js
+      - run:             testcafe chrome tests/UI/tests.js
 
 workflows:
-  version:    2.1
+  version:               2.1
   test:
     jobs:
       - api_test
