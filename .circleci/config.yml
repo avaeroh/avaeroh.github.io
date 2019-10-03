@@ -1,3 +1,44 @@
+# https://circleci.com/docs/2.0/sample-config/
+version: 2
+jobs:
+  api_test:
+    docker:
+      # mvn
+      - image: maven:latest
+    steps:
+      - checkout
+      - run: mvn -f .tests/API clean verify
+  testcafe:
+    docker:
+      # testcafe
+      - image: testcafe/testcafe
+    steps:
+      - checkout
+      - run: testcafe chrome tests/UI/tests.js
+workflows:
+  version: 2
+  test:
+    jobs:
+      - api_test
+      - testcafe
+
+
+# version: 2
+# jobs:
+#   build:
+#     docker:
+#       - image: ubuntu:latest
+#
+#     steps:
+#       - checkout
+#       - run: apt install mvn
+#       - run: apt install npm
+#       - run: mvn -f .tests/API clean verify
+#       - run: npm install -g testcafe
+#       - run: testcafe chrome tests/UI/tests.js
+
+
+
 # version: 2.1
 # orbs:
 #   maven: circleci/maven@1.0.0
@@ -6,17 +47,3 @@
 #     jobs:
 #       - maven/test:
 #           command: '-X verify'
-
-version: 2
-jobs:
-  build:
-    docker:
-      - image: ubuntu:latest
-
-    steps:
-      - checkout
-      - run: apt install mvn
-      - run: apt install npm
-      - run: mvn -f .tests/API clean verify
-      - run: npm install -g testcafe
-      - run: testcafe chrome tests/UI/tests.js
