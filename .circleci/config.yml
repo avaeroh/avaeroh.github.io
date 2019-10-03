@@ -2,27 +2,27 @@
 # https://circleci.com/docs/2.0/language-java-maven/
 version: 2
 jobs:
-    api_test:
-        working_directory: ~/avaeroh.github.io # directory where steps will run
+   api_test:
+     working_directory: ~/avaeroh.github.io # directory where steps will run
 
-    docker:
-      # mvn
-      - image: circleci/openjdk:8-jdk-stretch
-    steps:
-      - checkout
+     docker:
+       # mvn
+       - image: circleci/openjdk:8-jdk-stretch
+     steps:
+       - checkout
 
-      - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
+     - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: avaeroh.github.io-{{ checksum "pom.xml" }}
+      key: avaeroh.github.io-{{ checksum "pom.xml" }}
 
-      - run: mvn dependency:go-offline # gets the project dependencies
+     - run: mvn dependency:go-offline # gets the project dependencies
 
-      - save_cache: # saves the project dependencies
-          paths:
-            - ~/.m2
-          key: avaeroh.github.io-{{ checksum "pom.xml" }}
+     - save_cache: # saves the project dependencies
+      paths:
+        - ~/.m2
+      key: avaeroh.github.io-{{ checksum "pom.xml" }}
 
-      - run: mvn -f .tests/API clean verify
+     - run: mvn -f .tests/API clean verify
 
   testcafe:
     docker:
@@ -32,12 +32,12 @@ jobs:
       - checkout
       - run: testcafe chrome tests/UI/tests.js
 
-workflows:
-  version: 2
-  test:
-    jobs:
-      - api_test
-      - testcafe
+# workflows:
+#   version: 2
+#   test:
+#     jobs:
+#       - api_test
+#       - testcafe
 
 
 # version: 2
