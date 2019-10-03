@@ -10,12 +10,14 @@ jobs:
 
      steps:
        - checkout
-       # - run:            ls -la
-       # - run:            pwd
-       # - run:            cd ~/avaeroh.github.io/tests/API
+       - run:            ls -la
+       - run:            pwd
+       # - run:          cd ~/avaeroh.github.io/tests/API
        - restore_cache:  # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key:           avaeroh.github.io-{{ checksum "pom.xml" }}
+       - run:            ls -la
+       - run:            pwd    
 
        - run:            mvn dependency:go-offline # gets the project dependencies
 
