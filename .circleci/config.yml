@@ -2,8 +2,9 @@
 # https://circleci.com/docs/2.0/language-java-maven/
 version: 2
 jobs:
+    api_test:
+        working_directory: ~/avaeroh.github.io # directory where steps will run
 
-  api_test:
     docker:
       # mvn
       - image: circleci/openjdk:8-jdk-stretch
