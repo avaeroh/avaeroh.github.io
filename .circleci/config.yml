@@ -15,8 +15,8 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo apt install mvn
-      - run: sudo apt install npm
+      - run: apt install mvn
+      - run: apt install npm
       - run: mvn -f .tests/API clean verify
-      - run: sudo npm install -g testcafe
+      - run: npm install -g testcafe
       - run: testcafe chrome tests/UI/tests.js
