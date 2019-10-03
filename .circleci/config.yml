@@ -10,7 +10,7 @@ jobs:
 
      steps:
        - checkout
-
+       - run:            ls -la
        - restore_cache:  # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
