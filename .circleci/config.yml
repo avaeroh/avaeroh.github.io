@@ -15,7 +15,7 @@ jobs:
        # - run:          cd ~/avaeroh.github.io/tests/API
        - restore_cache:  # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key:           avaeroh.github.io-{{ checksum "tests/API/pom.xml" }}
+          key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
        # - run:            ls -la
        # - run:            pwd
 
@@ -24,7 +24,7 @@ jobs:
        - save_cache:     # saves the project dependencies
           paths:
             - ~/.m2
-          key:           avaeroh.github.io-{{ checksum "tests/API/pom.xml" }}
+          key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
 
        - run:            mvn -f ./tests/API clean verify
 
