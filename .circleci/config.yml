@@ -3,7 +3,7 @@
 version:                 2
 jobs:
    build:
-     working_directory:  ~/avaeroh.github.io # directory where steps will run
+     working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
 
      docker:
        # mvn
@@ -22,7 +22,7 @@ jobs:
             - ~/.m2
           key:           avaeroh.github.io-{{ checksum "pom.xml" }}
 
-       - run:            mvn -f .tests/API clean verify
+       - run:            mvn clean verify
 
 #   testcafe:
 #     docker:
