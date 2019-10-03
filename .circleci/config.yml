@@ -1,7 +1,7 @@
 # https://circleci.com/docs/2.0/sample-config/
 # https://circleci.com/docs/2.0/language-java-maven/
 version:                 2.1
-   api_test:
+api_test:
      working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
      - run:              ls -la
 
@@ -24,7 +24,7 @@ version:                 2.1
 
        - run:            mvn clean verify
 
-  testcafe: 
+testcafe:
     docker:
       # testcafe
       - image:           testcafe/testcafe
