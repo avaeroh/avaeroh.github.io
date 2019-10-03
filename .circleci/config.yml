@@ -1,11 +1,22 @@
+# version: 2.1
+# orbs:
+#   maven: circleci/maven@1.0.0
+# workflows:
+#   maven_test:
+#     jobs:
+#       - maven/test:
+#           command: '-X verify'
+
 version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.14-browsers
+      - image: ubuntu:latest
 
     steps:
       - checkout
+      - run: sudo apt install mvn
+      - run: sudo apt install npm
       - run: mvn -f .tests/API clean verify
       - run: sudo npm install -g testcafe
       - run: testcafe chrome tests/UI/tests.js
