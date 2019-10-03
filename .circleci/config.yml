@@ -1,7 +1,7 @@
 # https://circleci.com/docs/2.0/sample-config/
 # https://circleci.com/docs/2.0/language-java-maven/
 version:                 2
-jobs:
+# jobs:
    api_test:
      working_directory:  ~/avaeroh.github.io # directory where steps will run
 
@@ -32,12 +32,12 @@ jobs:
       - checkout
       - run:             testcafe chrome tests/UI/tests.js
 
-# workflows:
-#   version:             2
-#   test:
-#     jobs:
-#       - api_test
-#       - testcafe
+workflows:
+  version:               2
+  test:
+    jobs:
+      - api_test
+      - testcafe
 
 
 # version:               2
