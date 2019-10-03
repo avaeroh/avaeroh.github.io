@@ -1,7 +1,8 @@
 # https://circleci.com/docs/2.0/sample-config/
 # https://circleci.com/docs/2.0/language-java-maven/
 version:                 2.1
-api_test:
+jobs:
+  api_test:
      working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
      - run:              ls -la
 
@@ -24,7 +25,7 @@ api_test:
 
        - run:            mvn clean verify
 
-testcafe:
+ testcafe:
     docker:
       # testcafe
       - image:           testcafe/testcafe
@@ -32,12 +33,12 @@ testcafe:
       - checkout
       - run:             testcafe chrome tests/UI/tests.js
 
-workflows:
-  version:               2.1
-  test:
-    jobs:
-      - api_test
-      - testcafe
+# workflows:
+#   version:             2.1
+#   test:
+#     jobs:
+#       - api_test
+#       - testcafe
 
 
 # version:               2
