@@ -23,7 +23,9 @@ jobs:
           paths:
             - ~/.m2
           key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
-
+       - run:            ls -la
+       - run:            pwd
+       - run:            cd ~/avaeroh.github.io/tests/API/tests          
        - run:            mvn clean verify
 
  # testcafe:
