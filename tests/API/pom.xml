@@ -28,7 +28,27 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.8</version>
         </dependency>
-
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>packagecloud-avaeroh</id>
+            <url>packagecloud+https://packagecloud.io/avaeroh/core</url>
+        </repository>
+        <snapshotRepository>
+            <id>packagecloud-avaeroh</id>
+            <url>packagecloud+https://packagecloud.io/avaeroh/core</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>io.packagecloud.maven.wagon</groupId>
+                <artifactId>maven-packagecloud-wagon</artifactId>
+                <version>0.0.4</version>
+            </extension>
+        </extensions>
+    </build>
 
 </project>
