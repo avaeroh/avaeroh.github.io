@@ -3,7 +3,7 @@
 version:                 2.1
 jobs:
   build:
-     working_directory:  ~/avaeroh.github.io/tests/API/tests # directory where steps will run
+     working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
 
      docker:
        - image:          circleci/openjdk:8-jdk-stretch
@@ -25,7 +25,7 @@ jobs:
           key:           avaeroh.github.io-{{ checksum "pom.xml" }}
        - run:            ls -la
        - run:            pwd
-       - run:            cd ~/avaeroh.github.io/tests/API/tests
+       - run:            cd ~/avaeroh.github.io/tests/API
        - run:            mvn clean verify
 
  # testcafe:
