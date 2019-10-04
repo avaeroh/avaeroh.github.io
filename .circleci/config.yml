@@ -1,34 +1,34 @@
 # https://circleci.com/docs/2.0/sample-config/
 # https://circleci.com/docs/2.0/language-java-maven/
-version:                 2
+version:             2
 jobs:
   build:
-     # working_directory:  ~/avaeroh.github.io/tests/UI # directory where steps will run
+     # working_directory: ~/avaeroh.github.io/tests/UI # directory where steps will run
      docker:
-       # - image:          testcafe/testcafe
-       - image:          circleci/openjdk:8-jdk-stretch
+       # - image:    testcafe/testcafe
+        - image:     circleci/openjdk:8-jdk-stretch
 
      steps:
        - checkout
-       # - run:            testcafe chrome tests/UI/tests.js
+       # - run:      testcafe chrome tests/UI/tests.js
 
-       - run:            mvn -f ./tests/API clean verify
-       - run:            mvn -f ./tests/API test
+       - run:        mvn -f ./tests/API clean verify
+       - run:        mvn -f ./tests/API test
 
- test:
-     # working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
+  test:
+     # working_directory: ~/avaeroh.github.io/tests/API # directory where steps will run
      docker:
-       - image:          circleci/openjdk:8-jdk-stretch
+       - image:       circleci/openjdk:8-jdk-stretch
 
      steps:
        - checkout
-       - run:            mvn -f ./tests/API clean verify
-       - run:            mvn -f ./tests/API test
+       - run:         mvn -f ./tests/API clean verify
+       - run:         mvn -f ./tests/API test
 
 
 
 workflows:
-  version: 2
+  version:           2
   build_and_test:
     jobs:
       - build
@@ -62,40 +62,40 @@ workflows:
  # testcafe:
  #    docker:
  #      # testcafe
- #      - image:         testcafe/testcafe
+ #      - image:     testcafe/testcafe
  #    steps:
  #      - checkout
- #      - run:           testcafe chrome tests/UI/tests.js
+ #      - run:       testcafe chrome tests/UI/tests.js
 
 # workflows:
-#   version:             2.1
+#   version:         2.1
 #   test:
 #     jobs:
 #       - api_test
 #       - testcafe
 
 
-# version:               2
+# version:           2
 # jobs:
 #   build:
 #     docker:
-#       - image:         ubuntu:latest
+#       - image:     ubuntu:latest
 #
 #     steps:
 #       - checkout
-#       - run:           apt install mvn
-#       - run:           apt install npm
-#       - run:           mvn -f .tests/API clean verify
-#       - run:           npm install -g testcafe
-#       - run:           testcafe chrome tests/UI/tests.js
+#       - run:       apt install mvn
+#       - run:       apt install npm
+#       - run:       mvn -f .tests/API clean verify
+#       - run:       npm install -g testcafe
+#       - run:       testcafe chrome tests/UI/tests.js
 
 
 
-# version:               2.1
+# version:           2.1
 # orbs:
-#   maven:               circleci/maven@1.0.0
+#   maven:           circleci/maven@1.0.0
 # workflows:
 #   maven_test:
 #     jobs:
 #       - maven/test:
-#           command:     '-X verify'
+#           command: '-X verify'
