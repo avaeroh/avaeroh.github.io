@@ -13,7 +13,7 @@ jobs:
        - run:            mvn -f ./tests/API clean verify
        - run:            mvn -f ./tests/API test
 
-     docker:
+     testcafe:
        #testcafe
        - image:         testcafe/testcafe
        steps:
