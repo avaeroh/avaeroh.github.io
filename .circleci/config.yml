@@ -5,15 +5,11 @@ jobs:
   build:
      # working_directory: ~/avaeroh.github.io/tests/UI # directory where steps will run
      docker:
-       # - image:    testcafe/testcafe
-        - image:     circleci/openjdk:8-jdk-stretch
+        - image:    testcafe/testcafe
 
      steps:
        - checkout
-       # - run:      testcafe chrome tests/UI/tests.js
-
-       - run:        mvn -f ./tests/API clean verify
-       - run:        mvn -f ./tests/API test
+       - run:      testcafe chrome tests/UI/tests.js
 
   test:
      # working_directory: ~/avaeroh.github.io/tests/API # directory where steps will run
