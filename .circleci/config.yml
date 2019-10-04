@@ -6,27 +6,50 @@ jobs:
      working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
 
      docker:
-       - image:          circleci/openjdk:8-jdk-stretch
+       - image: circleci/openjdk:8-jdk-stretch
 
      steps:
        - checkout
-       # - run:          ls -la
-       # - run:          pwd
-       # - run:          cd ~/avaeroh.github.io/tests/API
-       # - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          # key:         avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
-       # - run:          ls -la
-       # - run:          pwd
+       - run: mvn -f ./tests/API clean verify
+       - run: mvn -f ./tests/API test
 
-       # - run:          mvn dependency:go-offline # gets the project dependencies
+  testcafe:
+      docker:
+        #testcafe
+        - image: testcafe/testcafe
+        steps:
+          - checkout
+          - run: testcafe chrome tests/UI/tests.js
 
-       # - save_cache:   # saves the project dependencies
-          # paths:
-          #   - ~/.m2
-          # key:           avaeroh.github.io-{{ checksum "./tests/API/pom.xml" }}
-       - run:            mvn -f ./tests/API clean verify
-       - run:            mvn -f ./tests/API test
+# workflows:
+#   version:             2.1
+#   test:
+#     jobs:
+#       - api_test
+#       - testcafe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  # testcafe:
  #    docker:
