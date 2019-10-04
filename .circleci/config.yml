@@ -5,17 +5,17 @@ jobs:
   build:
      # working_directory:  ~/avaeroh.github.io/tests/UI # directory where steps will run
      docker:
-       - image:          testcafe/testcafe
+       # - image:          testcafe/testcafe
        - image:          circleci/openjdk:8-jdk-stretch
 
      steps:
        - checkout
-       - run:            testcafe chrome tests/UI/tests.js
+       # - run:            testcafe chrome tests/UI/tests.js
+
        - run:            mvn -f ./tests/API clean verify
        - run:            mvn -f ./tests/API test
 
-
-  test:
+ test:
      # working_directory:  ~/avaeroh.github.io/tests/API # directory where steps will run
      docker:
        - image:          circleci/openjdk:8-jdk-stretch
@@ -33,6 +33,8 @@ workflows:
     jobs:
       - build
       - test
+        requires:
+          - bulild
 
 
 
