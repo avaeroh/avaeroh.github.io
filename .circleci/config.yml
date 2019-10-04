@@ -20,12 +20,12 @@ jobs:
        - checkout
        - run:          testcafe chrome tests/UI/tests.js
 
-# workflows:
-#   version:             2.1
-#   test:
-#     jobs:
-#       - api_test
-#       - testcafe
+workflows:
+  version:             2.1
+  test:
+    jobs:
+      - build
+      - test
 
 
 
