@@ -13,19 +13,19 @@ jobs:
        - run:            mvn -f ./tests/API clean verify
        - run:            mvn -f ./tests/API test
 
-  test:
+  build:
      docker:
        - image:          testcafe/testcafe
      steps:
        - checkout
        - run:          testcafe chrome tests/UI/tests.js
 
-workflows:
-  version:             2.1
-  test:
-    jobs:
-      - build
-      - test
+# workflows:
+#   version:             2.1
+#   test:
+#     jobs:
+#       - build
+#       - test
 
 
 
