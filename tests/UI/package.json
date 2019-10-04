@@ -1,0 +1,33 @@
+{
+  "name": "testcafe ui tests",
+  "version": "1.0.0",
+  "description": "Automated UI testing",
+  "main": "tests.js",
+  "scripts": {
+    "test": "testcafe chrome tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avaeroh/avaeroh.github.io.git"
+  },
+  "keywords": [
+    "automated",
+    "functional",
+    "ui",
+    "qa",
+    "async",
+    "await",
+    "ES6",
+    "browsers",
+    "webapp"
+  ],
+  "author": "Jonathan Millington-Hotze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avaeroh/avaeroh.github.io/issues"
+  },
+  "homepage": "https://github.com/avaeroh/avaeroh.github.io#readme",
+  "dependencies": {
+    "testcafe": "^1.5.0"
+  }
+}
