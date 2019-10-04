@@ -9,7 +9,7 @@ public class apiTests {
 
     private static final String baseUrl = "https://pokeapi.co/api/v2/";
     private static final String cyndaquilResourceID = "pokemon/cyndaquil/";
-    private static final int cydaquilsWeight = 78;
+    private static final int cydaquilsWeight = 79;
     private Header acceptHeader = new Header("accept", "text/json");
 
     @Test
