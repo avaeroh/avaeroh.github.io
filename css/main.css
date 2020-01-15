@@ -57,6 +57,11 @@ ul.posts li {
     list-style: none;
 }
 
+profilepic {
+  max-width: 220px;
+  max-height: 150px;
+}
+
 .Site {
     display: flex;
     min-height: 100vh;
